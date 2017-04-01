@@ -15,7 +15,7 @@ USE pbkr;
 -- We drop tables if they exist so we can re-create them
 DROP TABLE IF EXISTS pbkr.GENRE;
 CREATE TABLE pbkr.GENRE (
-  --1 GENRE is a table to store genre descriptions
+  /* 1 GENRE is a table to store genre descriptions */
   genre_id INT NOT NULL, /* Unique ID for GENRE */
   description VARCHAR(30) NOT NULL, /* Description of GENRE */
   PRIMARY KEY (genre_id)
@@ -23,7 +23,7 @@ CREATE TABLE pbkr.GENRE (
 
 DROP TABLE IF EXISTS pbkr.ROLE;
 CREATE TABLE pbkr.ROLE (
-  --2 ROLE is a table to store role descriptions
+  /* 2 ROLE is a table to store role descriptions */
   role_id INT NOT NULL, /* Unique ID for ROLE */
   description VARCHAR(30) NOT NULL, /* Description of ROLE */
   PRIMARY KEY (role_id)
@@ -31,7 +31,7 @@ CREATE TABLE pbkr.ROLE (
 
 DROP TABLE IF EXISTS pbkr.PERSON;
 CREATE TABLE pbkr.PERSON (
-  --3 PERSON is a table to store actors and directors
+  /* 3 PERSON is a table to store actors and directors */
   person_id INT NOT NULL, /* Unique ID for PERSON */
   name VARCHAR(60) NOT NULL, /* Name of PERSON */
   birthday DATETIME, /* Birthday of PERSON */
@@ -41,7 +41,7 @@ CREATE TABLE pbkr.PERSON (
 
 DROP TABLE IF EXISTS pbkr.AWARD_TYPE;
 CREATE TABLE pbkr.AWARD_TYPE (
-  --4 AWARD_TYPE is a table to store award descriptions
+  /* 4 AWARD_TYPE is a table to store award descriptions */
   award_type_id INT NOT NULL, /* Unique ID for AWARD_TYPE */
   description VARCHAR(30) NOT NULL, /* Description of AWARD_TYPE */
   PRIMARY KEY (award_type_id)
@@ -49,7 +49,7 @@ CREATE TABLE pbkr.AWARD_TYPE (
 
 DROP TABLE IF EXISTS pbkr.MOVIE;
 CREATE TABLE pbkr.MOVIE (
-  --5 MOVIE is the base movie table
+  /* 5 MOVIE is the base movie table */
   movie_id INT NOT NULL, /* Unique ID for MOVIE */
   title VARCHAR(60) NOT NULL, /* Title of MOVIE */
   running_length INT NOT NULL, /* Running Length (minutes) of MOVIE */
@@ -60,7 +60,7 @@ CREATE TABLE pbkr.MOVIE (
 
 DROP TABLE IF EXISTS pbkr.ITEM_TYPE;
 CREATE TABLE pbkr.ITEM_TYPE (
-  --6 ITEM_TYPE is a table to store descriptions of items
+  /* 6 ITEM_TYPE is a table to store descriptions of items */
   item_type_id INT NOT NULL, /* Unique ID for ITEM_TYPE */
   description VARCHAR(30) NOT NULL, /* Description of ITEM_TYPE */
   PRIMARY KEY (item_type_id)
@@ -68,7 +68,7 @@ CREATE TABLE pbkr.ITEM_TYPE (
 
 DROP TABLE IF EXISTS pbkr.DISTRIBUTOR;
 CREATE TABLE pbkr.DISTRIBUTOR (
-  --7 DISTRIBUTOR is a table storing distributor names
+  /* 7 DISTRIBUTOR is a table storing distributor names */
   distributor_id INT NOT NULL, /* Unique ID for DISTRIBUTOR */
   name VARCHAR(30) NOT NULL, /* Name of DISTRIBUTOR */
   PRIMARY KEY (distributor_id)
@@ -76,7 +76,7 @@ CREATE TABLE pbkr.DISTRIBUTOR (
 
 DROP TABLE IF EXISTS pbkr.CUSTOMER;
 CREATE TABLE pbkr.CUSTOMER (
-  --8 CUSTOMER is the main customer table
+  /* 8 CUSTOMER is the main customer table */
   customer_id INT NOT NULL, /* Unique ID for CUSTOMER */
   first_name VARCHAR(30) NOT NULL, /* First Name of CUSTOMER */
   last_name VARCHAR(30) NOT NULL, /* Last Name of CUSTOMER */
@@ -92,7 +92,7 @@ CREATE TABLE pbkr.CUSTOMER (
 
 DROP TABLE IF EXISTS pbkr.CHARGE_TYPE;
 CREATE TABLE pbkr.CHARGE_TYPE (
-  --9 CHARGE_TYPE is a table storing charge descriptions
+  /* 9 CHARGE_TYPE is a table storing charge descriptions */
   charge_type_id INT NOT NULL, /* Unique ID for CHARGE_TYPE */
   description VARCHAR(30) NOT NULL, /* CHARGE_TYPE description */
   default_cost DECIMAL(9,2), /* Default cost for the type of charge */
@@ -101,7 +101,7 @@ CREATE TABLE pbkr.CHARGE_TYPE (
 
 DROP TABLE IF EXISTS pbkr.DISCOUNT;
 CREATE TABLE pbkr.DISCOUNT (
-  --10 DISCOUNT is a table storing promotions
+  /* 10 DISCOUNT is a table storing promotions */
   discount_id INT NOT NULL, /* Unique ID for DISCOUNT */
   movie_id INT, /* ID of the MOVIE if this discount applies to just one movie */
   genre_id INT, /* ID of the GENRE if this discount applies to a genre of movies */
@@ -115,7 +115,7 @@ CREATE TABLE pbkr.DISCOUNT (
 
 DROP TABLE IF EXISTS pbkr.MOVIE_GENRE;
 CREATE TABLE pbkr.MOVIE_GENRE (
-  --11 MOVIE_GENRE is a table that links a genre to a movie
+  /* 11 MOVIE_GENRE is a table that links a genre to a movie */
   movie_genre_id INT NOT NULL, /* Unique ID for MOVIE_GENRE */
   genre_id INT NOT NULL, /* ID of the GENRE for the movie in movie_id */
   movie_id INT NOT NULL, /* ID of the MOVIE that the genre applies to */
@@ -126,7 +126,7 @@ CREATE TABLE pbkr.MOVIE_GENRE (
 
 DROP TABLE IF EXISTS pbkr.CAST;
 CREATE TABLE pbkr.CAST (
-  --12 CAST is a table that links a PERSON to a MOVIE and ROLE
+  /* 12 CAST is a table that links a PERSON to a MOVIE and ROLE */
   cast_id INT NOT NULL, /* Unique ID for CAST */
   movie_id INT NOT NULL, /* ID of the MOVIE they particpated in */
   role_id INT NOT NULL, /* ID of the ROLE they had (1 - Director, 2 - Actor) */
@@ -139,7 +139,7 @@ CREATE TABLE pbkr.CAST (
 
 DROP TABLE IF EXISTS pbkr.AWARD;
 CREATE TABLE pbkr.AWARD (
-  --13 AWARD is a table that links an AWARD_TYPE to a MOVIE and maybe a PERSON
+  /* 13 AWARD is a table that links an AWARD_TYPE to a MOVIE and maybe a PERSON */
   award_id INT NOT NULL, /* Unique ID for AWARD */
   award_type_id INT NOT NULL, /* ID of the AWARD_TYPE */
   person_id INT NOT NULL, /* ID of the PERSON who won the award */
@@ -153,7 +153,7 @@ CREATE TABLE pbkr.AWARD (
 
 DROP TABLE IF EXISTS pbkr.CATALOG;
 CREATE TABLE pbkr.CATALOG (
-  --14 CATALOG is a table containing many DISTRIBUTORs catalogs of movies
+  /* 14 CATALOG is a table containing many DISTRIBUTORs catalogs of movies */
   catalog_id INT NOT NULL, /* Unique ID for CATALOG */
   movie_id INT NOT NULL, /* ID of the MOVIE this catalog entry is for */
   item_type_id INT NOT NULL, /* FK ID of the ITEM_TYPE for the type (1 - VHS, 2 - DVD) */
@@ -166,7 +166,7 @@ CREATE TABLE pbkr.CATALOG (
 
 DROP TABLE IF EXISTS pbkr.SHIPMENT;
 CREATE TABLE pbkr.SHIPMENT (
-  --15 SHIPMENT is a table representing a shipment of movies
+  /* 15 SHIPMENT is a table representing a shipment of movies */
   shipment_id INT NOT NULL, /* Unique ID for SHIPMENT */
   distributor_id INT NOT NULL, /* ID of the DISTRIBUTOR this shipment is from */
   shipment_date DATETIME NOT NULL, /* Date this shipment shipped */
@@ -176,7 +176,7 @@ CREATE TABLE pbkr.SHIPMENT (
 
 DROP TABLE IF EXISTS pbkr.SHIPMENT_ITEM;
 CREATE TABLE pbkr.SHIPMENT_ITEM (
-  --16 SHIPMENT_ITEM is a table containing line items of shipments
+  /* 16 SHIPMENT_ITEM is a table containing line items of shipments */
   shipment_item_id INT NOT NULL, /* Unique ID for SHIPMENT_ITEM */
   catalog_id INT NOT NULL, /* ID of the CATALOG of the video that was shipped */
   shipment_id INT NOT NULL, /* ID of the SHIPMENT this item was included in */
@@ -189,7 +189,7 @@ CREATE TABLE pbkr.SHIPMENT_ITEM (
 
 DROP TABLE IF EXISTS pbkr.INVENTORY;
 CREATE TABLE pbkr.INVENTORY (
-  --17 INVENTORY is a table containing the store's movie inventory
+  /* 17 INVENTORY is a table containing the store's movie inventory */
   inventory_id INT NOT NULL, /* Unique ID for INVENTORY */
   shipment_item_id INT NOT NULL, /* ID of the SHIPMENT that this inventory item shipped with */
   rental_price DECIMAL(9,2) NOT NULL, /* Rental price */
@@ -199,7 +199,7 @@ CREATE TABLE pbkr.INVENTORY (
 
 DROP TABLE IF EXISTS pbkr.INVOICE;
 CREATE TABLE pbkr.INVOICE (
-  --18 INVOICE is a table containing the main invoices for CUSTOMERs
+  /* 18 INVOICE is a table containing the main invoices for CUSTOMERs */
   invoice_id INT NOT NULL, /* Unique ID for INVOICE */
   customer_id INT NOT NULL, /* ID of the Customer that rented the videos */
   invoice_date DATETIME NOT NULL, /* Date this invoice was created */
@@ -210,7 +210,7 @@ CREATE TABLE pbkr.INVOICE (
 
 DROP TABLE IF EXISTS pbkr.INVOICE_ITEM;
 CREATE TABLE pbkr.INVOICE_ITEM (
-  --19 INVOICE_ITEM is a table representing line items on an INVOICE
+  /* 19 INVOICE_ITEM is a table representing line items on an INVOICE */
   invoice_item_id INT NOT NULL, /* Unique ID for INVOICE_ITEM */
   inventory_id INT NOT NULL, /* ID of the INVENTORY_ITEM included on the invoice */
   discount_id INT, /* ID of the DISCOUNT that is applied (if applicable) */
@@ -225,7 +225,7 @@ CREATE TABLE pbkr.INVOICE_ITEM (
 
 DROP TABLE IF EXISTS pbkr.CHARGE;
 CREATE TABLE pbkr.CHARGE (
-  --20 CHARGE is a table containing the extra charges on an INVOICE
+  /* 20 CHARGE is a table containing the extra charges on an INVOICE */
   charge_id INT NOT NULL, /* Unique ID for CHARGE */
   invoice_id INT NOT NULL, /* ID of the INVOICE this charge is included on */
   charge_type_id INT NOT NULL, /* ID of the CHARGE_TYPE of this charge */
