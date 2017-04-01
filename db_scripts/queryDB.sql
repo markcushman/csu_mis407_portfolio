@@ -1,10 +1,10 @@
 -- Colorado State University - Global Campus
 -- Database Concepts: WINTER16-D-8-MIS407-1
 -- Student: Mark Cushman
--- Date: 2017-03-10
+-- Date: 2017-04-01
 
--- This script queries the database for the ACME Corporation CRM solution
--- This database will handle orders and customers in North America
+-- This script queries the database for the Please Be Kind Rewind video store application
+-- This database will handle movie data, inventory data, customer data and invoices
 
 USE pbkr;
 
