@@ -119,7 +119,7 @@ CREATE TABLE pbkr.MOVIE_GENRE (
   movie_genre_id INT NOT NULL, /* Unique ID for MOVIE_GENRE */
   genre_id INT NOT NULL, /* ID of the GENRE for the movie in movie_id */
   movie_id INT NOT NULL, /* ID of the MOVIE that the genre applies to */
-  PRIMARY KEY (movie_genre_id)
+  PRIMARY KEY (movie_genre_id),
   FOREIGN KEY (genre_id) REFERENCES pbkr.GENRE(genre_id),
   FOREIGN KEY (movie_id) REFERENCES pbkr.MOVIE(movie_id)
 );
