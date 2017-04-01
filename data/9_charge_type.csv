@@ -1,0 +1,5 @@
+charge_type id,description
+1,Late
+2,Damaged
+3,Rewind
+4,Taxes
