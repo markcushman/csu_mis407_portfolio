@@ -234,3 +234,29 @@ CREATE TABLE pbkr.CHARGE (
   FOREIGN KEY (invoice_id) REFERENCES pbkr.INVOICE(invoice_id),
   FOREIGN KEY (charge_type_id) REFERENCES pbkr.CHARGE_TYPE(charge_type_id)
 );
+
+DROP VIEW IF EXISTS pbkr.INVENTORY_VW;
+CREATE VIEW pbkr.INVENTORY_VW AS
+  /* utility view that combines data from MOVIE, CATALOG, SHIPMENT_ITEM and INVENTORY */
+  SELECT
+    inv.inventory_id, inv.rental_price,
+  	si.shipment_item_id, si.shipment_id, si.catalog_id,
+  	c.movie_id, c.item_type_id,
+  	m.title, m.running_length, m.release_date
+  FROM pbkr.INVENTORY inv LEFT JOIN
+  	(SELECT shipment_item_id, shipment_id, catalog_id from pbkr.SHIPMENT_ITEM) si ON inv.shipment_item_id = si.shipment_item_id LEFT JOIN
+  	(SELECT catalog_id, movie_id, item_type_id from pbkr.CATALOG) c ON si.catalog_id = c.catalog_id LEFT JOIN
+  	(SELECT movie_id, title, running_length, release_date from pbkr.MOVIE) m ON c.movie_id = m.movie_id;
+
+
+DROP VIEW IF EXISTS pbkr.DISCOUNT_VW;
+CREATE VIEW pbkr.DISCOUNT_VW AS
+  /* utility view that combines data from DISCOUNT and MOVIE_GENRE */
+  SELECT
+  	mg.movie_id, mg.genre_id,
+  	d.discount_id, d.start_date, d.end_date, d.discount_percent
+  FROM
+  	pbkr.MOVIE_GENRE mg LEFT JOIN
+  	(SELECT discount_id, genre_id, movie_id, start_date, end_date, discount_percent from pbkr.DISCOUNT) d
+  		ON (mg.genre_id = d.genre_id OR mg.movie_id = d.movie_id)
+  WHERE d.discount_id > 0;
