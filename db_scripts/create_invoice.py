@@ -101,7 +101,7 @@ try:
                 if(random.randrange(1, 101) < 80):
                     return_date = randomDate(invoice_date, "2017-04-01 23:23:59", random.random())
                 else:
-                    return_date = 'NULL'
+                    return_date = '0000-00-00 00:00:00'
 
                 #20% of the VHS tapes (item_type_id=1) are not rewound
                 if(return_date != 'NULL' and row["item_type_id"] == "1" and (random.randrange(1, 101) < 21)):
@@ -128,10 +128,11 @@ try:
 
             #now calculate the taxes
             #charge_id, invoice_id, charge_type_id, amount
-            new_charge = [charge_id, invoice_id, 4, (amount_paid * decimal.Decimal('.075'))]
+            new_charge = [charge_id, invoice_id, 4,
+                decimal.Decimal(amount_paid * decimal.Decimal('.075')).quantize(decimal.Decimal('.01'), decimal.ROUND_HALF_UP)]
             charge.append(new_charge)
             charge_id += 1
-            amount_paid = (amount_paid * decimal.Decimal('1.075'))
+            amount_paid = decimal.Decimal(amount_paid * decimal.Decimal('1.075')).quantize(decimal.Decimal('.01'), decimal.ROUND_HALF_UP)
 
             new_invoice = [invoice_id, customer_id, invoice_date, amount_paid]
             invoice.append(new_invoice)
