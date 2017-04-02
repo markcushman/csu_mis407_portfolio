@@ -101,7 +101,7 @@ try:
                 if(random.randrange(1, 101) < 80):
                     return_date = randomDate(invoice_date, "2017-04-01 23:23:59", random.random())
                 else:
-                    return_date = '0000-00-00 00:00:00'
+                    return_date = '\N'
 
                 #20% of the VHS tapes (item_type_id=1) are not rewound
                 if(return_date != 'NULL' and row["item_type_id"] == "1" and (random.randrange(1, 101) < 21)):
