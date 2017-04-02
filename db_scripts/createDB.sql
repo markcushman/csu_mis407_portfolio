@@ -216,7 +216,7 @@ CREATE TABLE pbkr.INVOICE_ITEM (
   discount_id INT, /* ID of the DISCOUNT that is applied (if applicable) */
   invoice_id INT NOT NULL, /* ID of the INVOICE this item is included on */
   rental_price DECIMAL(9,2) NOT NULL, /* rental price of the item, after discounts (if any) are applied */
-  return_date DATETIME, /* Date the item was returned */
+  return_date DATETIME NULL, /* Date the item was returned */
   PRIMARY KEY (invoice_item_id),
   FOREIGN KEY (inventory_id) REFERENCES pbkr.INVENTORY(inventory_id),
   FOREIGN KEY (discount_id) REFERENCES pbkr.DISCOUNT(discount_id),

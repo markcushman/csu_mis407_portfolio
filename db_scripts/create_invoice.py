@@ -18,7 +18,7 @@ def randomDate(start, end, prop):
     return strTimeProp(start, end, '%Y-%m-%d %H:%M:%S', prop)
 
 def getmoviediscount(discount_array, movie_id, date, rental_price):
-    returnvalue = ["NULL"]
+    returnvalue = ["\N"]
     returnvalue.append(rental_price)
     ntime = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
 
