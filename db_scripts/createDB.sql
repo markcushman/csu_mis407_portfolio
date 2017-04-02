@@ -34,8 +34,8 @@ CREATE TABLE pbkr.PERSON (
   /* 3 PERSON is a table to store actors and directors */
   person_id INT NOT NULL, /* Unique ID for PERSON */
   name VARCHAR(60) NOT NULL, /* Name of PERSON */
-  birthday DATETIME, /* Birthday of PERSON */
-  description TEXT, /* Description of PERSON */
+  birthday DATETIME NULL, /* Birthday of PERSON */
+  description TEXT NULL, /* Description of PERSON */
   PRIMARY KEY (person_id)
 );
 
@@ -142,7 +142,7 @@ CREATE TABLE pbkr.AWARD (
   /* 13 AWARD is a table that links an AWARD_TYPE to a MOVIE and maybe a PERSON */
   award_id INT NOT NULL, /* Unique ID for AWARD */
   award_type_id INT NOT NULL, /* ID of the AWARD_TYPE */
-  person_id INT NOT NULL, /* ID of the PERSON who won the award */
+  person_id INT NULL, /* ID of the PERSON who won the award */
   movie_id INT NOT NULL, /* ID of the MOVIE the award applies to */
   year YEAR NOT NULL, /* Year the award was given */
   PRIMARY KEY (award_id),
