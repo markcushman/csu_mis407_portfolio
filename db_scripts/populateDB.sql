@@ -76,8 +76,14 @@ LOAD DATA LOCAL INFILE '../data/17_inventory.csv' INTO TABLE pbkr.INVENTORY
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES
 (inventory_id,shipment_item_id,rental_price);
 
--- INVOICE;
+LOAD DATA LOCAL INFILE '../data/18_invoice.csv' INTO TABLE pbkr.INVOICE
+FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES
+(invoice_id,customer_id,invoice_date,amount_paid);
 
--- INVOICE_ITEM;
+LOAD DATA LOCAL INFILE '../data/19_invoice_item.csv' INTO TABLE pbkr.INVOICE_ITEM
+FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES
+(invoice_item_id,inventory_id,discount_id,invoice_id,rental_price,return_date);
 
--- CHARGE;
+LOAD DATA LOCAL INFILE '../data/20_charge.csv' INTO TABLE pbkr.CHARGE
+FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES
+(charge_id,invoice_id,charge_type_id,amount);
