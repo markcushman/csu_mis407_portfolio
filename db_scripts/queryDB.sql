@@ -18,10 +18,10 @@ SELECT * from pbkr.CHARGE_TYPE;
 
 
 SELECT COUNT(*) from pbkr.PERSON;
-SELECT person_id,name,birthday,LEFT(description,20) from pbkr.PERSON LIMIT 25;
+SELECT person_id,name,birthday,LEFT(description,40) from pbkr.PERSON LIMIT 25;
 
 SELECT COUNT(*) from pbkr.MOVIE;
-SELECT movie_id,title,running_length,release_date,LEFT(description,20) from pbkr.MOVIE LIMIT 25;
+SELECT movie_id,title,running_length,release_date,LEFT(description,40) from pbkr.MOVIE LIMIT 25;
 
 SELECT COUNT(*) from pbkr.CUSTOMER;
 SELECT * from pbkr.CUSTOMER LIMIT 25;
