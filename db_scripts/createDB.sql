@@ -202,7 +202,7 @@ DROP TABLE IF EXISTS pbkr.INVOICE;
 CREATE TABLE pbkr.INVOICE (
   /* 18 INVOICE is a table containing the main invoices for CUSTOMERs */
   invoice_id INT NOT NULL, /* Unique ID for INVOICE */
-  customer_id INT NOT NULL, /* ID of the Customer that rented the videos */
+  customer_id INT NULL, /* ID of the Customer that rented the videos */
   invoice_date DATETIME NOT NULL, /* Date this invoice was created */
   amount_paid DECIMAL(9,2) NOT NULL, /* Amount the customer initially paid */
   PRIMARY KEY (invoice_id),
