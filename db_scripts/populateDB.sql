@@ -72,7 +72,9 @@ LOAD DATA LOCAL INFILE '../data/16_shipment_item.csv' INTO TABLE pbkr.SHIPMENT_I
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES
 (shipment_item_id,catalog_id,shipment_id,quantity,item_cost)
 
--- INVENTORY;
+LOAD DATA LOCAL INFILE '../data/17_inventory.csv' INTO TABLE pbkr.INVENTORY
+FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES
+(inventory_id,shipment_item_id,rental_price)
 
 -- INVOICE;
 
