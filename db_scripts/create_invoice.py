@@ -88,10 +88,10 @@ try:
             invoice_date = randomDate("2016-06-01 00:00:01", "2017-04-01 23:23:59", random.random())
             amount_paid = 0
 
-            #each customer rents between 1 and 10 movies at a time
+            #each customer rents between 1 and 5 movies at a time
             #this will populate our INVOICE_ITEM table
             sql = "SELECT inventory_id, movie_id, item_type_id, rental_price from pbkr.INVENTORY_VW "
-            sql += "ORDER by RAND() LIMIT %(rand)s" % {"rand":random.randrange(10)+1}
+            sql += "ORDER by RAND() LIMIT %(rand)s" % {"rand":random.randrange(5)+1}
             cursor.execute(sql)
 
             for row in cursor:
