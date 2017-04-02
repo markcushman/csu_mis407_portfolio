@@ -103,8 +103,8 @@ DROP TABLE IF EXISTS pbkr.DISCOUNT;
 CREATE TABLE pbkr.DISCOUNT (
   /* 10 DISCOUNT is a table storing promotions */
   discount_id INT NOT NULL, /* Unique ID for DISCOUNT */
-  movie_id INT, /* ID of the MOVIE if this discount applies to just one movie */
-  genre_id INT, /* ID of the GENRE if this discount applies to a genre of movies */
+  movie_id INT NULL, /* ID of the MOVIE if this discount applies to just one movie */
+  genre_id INT NULL, /* ID of the GENRE if this discount applies to a genre of movies */
   start_date DATETIME NOT NULL, /* Starting date when the discount applies */
   end_date DATETIME NOT NULL, /* Ending date of the discount period */
   discount_percent INT NOT NULL, /* Percentage removed from retail price during discount period */

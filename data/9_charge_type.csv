@@ -1,5 +1,5 @@
-charge_type id,description
-1,Late
-2,Damaged
-3,Rewind
-4,Taxes
+charge_type_id,description,default_cost
+1,Late,0.99
+2,Damaged,5.99
+3,Rewind,0.99
+4,Taxes,0
