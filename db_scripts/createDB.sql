@@ -108,6 +108,7 @@ CREATE TABLE pbkr.DISCOUNT (
   start_date DATETIME NOT NULL, /* Starting date when the discount applies */
   end_date DATETIME NOT NULL, /* Ending date of the discount period */
   discount_percent INT NOT NULL, /* Percentage removed from retail price during discount period */
+  description VARCHAR(120) NULL,
   PRIMARY KEY (discount_id),
   FOREIGN KEY (movie_id) REFERENCES pbkr.MOVIE(movie_id),
   FOREIGN KEY (genre_id) REFERENCES pbkr.GENRE(genre_id)
