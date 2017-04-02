@@ -7,7 +7,7 @@ rm -rf /tmp/sql.tmp
 cat populateDB.sql > /tmp/sql.tmp
 
 # now execute the commands in the concatenated file and run them through mysql
-cat /tmp/sql.tmp | mysql -uroot -p -t -vvv --show-warnings
+cat /tmp/sql.tmp | mysql -uroot -p -t -vvv
 
 # clean up
 rm -rf /tmp/sql.tmp

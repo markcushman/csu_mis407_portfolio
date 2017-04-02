@@ -6,8 +6,6 @@
 -- This script populates the database for the Please Be Kind Rewind video store application
 -- This database will handle movie data, inventory data, customer data and invoices
 
-SET SQL_WARNINGS = 1;
-
 USE pbkr;
 
 LOAD DATA LOCAL INFILE '../data/1_genre.csv' INTO TABLE pbkr.GENRE
